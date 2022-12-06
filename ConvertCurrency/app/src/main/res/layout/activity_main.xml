@@ -11,27 +11,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="From USD"
+        android:text="From: USD"
+        android:id="@+id/fromText"
         android:textSize="25dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter a number"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:id="@+id/fromEdit"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="To"
+        android:text="To: VND"
+        android:id="@+id/toText"
         android:textSize="25dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Result here"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:id="@+id/toEdit"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,8 +51,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Convert"
+            android:id="@+id/btnConvert"
             android:layout_marginRight="20dp"
-            android:textSize="20dp"
+            android:textSize="16dp"
             />
 
         <Button
@@ -54,7 +61,8 @@
             android:layout_height="wrap_content"
             android:text="Clear"
             android:layout_marginRight="20dp"
-            android:textSize="20dp"
+            android:textSize="16dp"
+            android:id="@+id/btnClear"
             />
     </LinearLayout>
 
@@ -63,7 +71,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Options"
-        android:textSize="20dp"
+        android:id="@+id/btnOptions"
+        android:textSize="24dp"
         android:layout_gravity="center"
         />
 </LinearLayout>
