@@ -22,10 +22,5 @@ public class MainActivity extends AppCompatActivity {
         for( int i = 0 ;i < 10; i++) {
             emails.add(new Email("Dat", "Content", "12:04 PM", true));
         }
-
-        GridView gridView = findViewById(R.id.grid_view);
-        EmailAdapter emailAdapter = new EmailAdapter(this, R.layout.layout_entry_email, emails);
-        gridView.setAdapter(emailAdapter);
-
     }
 }

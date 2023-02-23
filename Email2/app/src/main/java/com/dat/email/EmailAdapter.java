@@ -10,23 +10,19 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class EmailAdapter extends ArrayAdapter {
+public class EmailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     List<Email> emails;
-    int index;
+    ItemClickListener listener;
 
-    public EmailAdapter(@NonNull Context context, int resource, @NonNull List<Email> objects) {
-        super(context, resource, objects);
-        index = resource;
-        emails = objects;
-    }
 
-    @Override
-    public int getCount() {
-        return emails.size();
+    public EmailAdapter(List<Email> emails, ItemClickListener listener) {
+        this.emails = emails;
+        this.listener = listener;
     }
 
     @NonNull
@@ -54,23 +50,41 @@ public class EmailAdapter extends ArrayAdapter {
         textContent.setText(email.getName());
         textTime.setText(email.getTime());
 
-        btnFavorite.setOnClickListener(new View.OnClickListener() {
+        btnFavorite.setOnClickListener(view1 -> {
+            int position1 = view1.getId();
+            Email email1 = emails.get(position1);
 
-            @Override
-            public void onClick(View view) {
-                int position = view.getId();
-                Email email = emails.get(position);
-
-                if(email.isCheckFavorite()) {
-                    btnFavorite.setBackgroundResource(R.drawable.ic_favorite_nonactive_24);
-                } else {
-                    btnFavorite.setBackgroundResource(R.drawable.ic_favorite_active_24);
-                }
+            if(email1.isCheckFavorite()) {
+                btnFavorite.setBackgroundResource(R.drawable.ic_favorite_nonactive_24);
+            } else {
+                btnFavorite.setBackgroundResource(R.drawable.ic_favorite_active_24);
             }
         });
 
-
-
         return view;
+    }
+
+    @NonNull
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view =LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_entry_email, null);
+        return null;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
+
+    class ItemViewHolder extends RecyclerView.ViewHolder {
+
+        public ItemViewHolder(@NonNull View itemView) {
+            super(itemView);
+        }
     }
 }
